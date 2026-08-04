@@ -11,8 +11,8 @@
 */
 
 window.APP_CONFIG = {
-  SUPABASE_URL: "https://YOUR-PROJECT-ID.supabase.co",
-  SUPABASE_PUBLISHABLE_KEY: "YOUR_SUPABASE_PUBLISHABLE_KEY",
+  SUPABASE_URL: "https://supabase.com/dashboard/org/giwtpcfmkvndrltaogzz",
+  SUPABASE_PUBLISHABLE_KEY: "sb_publishable_gx5hsY4-gtCjcR17AtSaTQ_Lnp3-wj7",
 
   SITE_NAME: "Aurelia",
   CURRENCY: "LKR",
