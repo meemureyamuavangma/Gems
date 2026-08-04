@@ -11,7 +11,7 @@
 */
 
 window.APP_CONFIG = {
-  SUPABASE_URL: "https://supabase.com/dashboard/org/giwtpcfmkvndrltaogzz",
+  SUPABASE_URL: "https://supabase.com/dashboard/project/nbawdexultobgdfylwzg/settings/api-keys",
   SUPABASE_PUBLISHABLE_KEY: "sb_publishable_gx5hsY4-gtCjcR17AtSaTQ_Lnp3-wj7",
 
   SITE_NAME: "Aurelia",
