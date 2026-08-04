@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>Owner Dashboard — Aurelia</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="owner-page">
+  <header class="site-header">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>Aurelia</span>
+    </a>
+    <span></span>
+    <a class="owner-link" href="./">View website</a>
+  </header>
+
+  <main class="owner-shell">
+    <section id="configuration-view" class="login-card" hidden>
+      <p class="eyebrow dark-eyebrow">Configuration required</p>
+      <h1>Connect Supabase.</h1>
+      <p>Add your project URL and publishable key to <code>config.js</code>, then refresh this page.</p>
+      <a class="button button-dark" href="./README.md">Read setup guide</a>
+    </section>
+
+    <section id="login-view" class="login-card" hidden>
+      <p class="eyebrow dark-eyebrow">Private access</p>
+      <h1>Owner login.</h1>
+      <p>Sign in to create, edit, publish, reorder, or delete website items.</p>
+
+      <form id="login-form" class="owner-form" novalidate>
+        <label class="field">
+          <span>Email address</span>
+          <input id="login-email" type="email" autocomplete="username" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="login-password" type="password" autocomplete="current-password" required>
+        </label>
+
+        <button id="login-button" class="button button-primary" type="submit">Sign in</button>
+        <p id="login-message" class="form-message" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="unauthorized-view" class="login-card" hidden>
+      <p class="eyebrow dark-eyebrow">Access denied</p>
+      <h1>Not an owner.</h1>
+      <p>This account is authenticated, but it is not registered in the website's administrator table.</p>
+      <button id="unauthorized-logout" class="button button-dark" type="button">Log out</button>
+    </section>
+
+    <section id="dashboard-view" hidden>
+      <div class="owner-topbar">
+        <div class="owner-title">
+          <p class="eyebrow dark-eyebrow">Owner dashboard</p>
+          <h1>Manage collection.</h1>
+          <p id="owner-email">Draft privately. Publish only when an item is ready.</p>
+        </div>
+        <div class="topbar-actions">
+          <a class="button button-secondary" href="./" target="_blank" rel="noopener">Preview site</a>
+          <button id="logout-button" class="button button-dark" type="button">Log out</button>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel form-panel">
+          <div>
+            <p class="eyebrow dark-eyebrow">Item editor</p>
+            <h2 id="form-title">Add new item</h2>
+            <p>Unpublished items remain invisible on the public page.</p>
+          </div>
+
+          <form id="item-form" class="owner-form" novalidate>
+            <input id="item-id" type="hidden">
+
+            <label class="field">
+              <span>Item name *</span>
+              <input id="item-name" maxlength="90" required placeholder="Example: Signature Tour">
+            </label>
+
+            <div class="form-row">
+              <label class="field">
+                <span>Category</span>
+                <input id="item-category" maxlength="50" placeholder="Tours">
+              </label>
+
+              <label class="field">
+                <span>Price</span>
+                <input id="item-price" type="number" min="0" step="0.01" value="0">
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Description</span>
+              <textarea id="item-description" maxlength="400" placeholder="Describe the item and its main benefits."></textarea>
+            </label>
+
+            <label class="field">
+              <span>Image URL</span>
+              <input id="item-image" type="url" inputmode="url" placeholder="https://example.com/image.jpg">
+            </label>
+
+            <div id="image-preview" class="image-preview">
+              <img src="./assets/placeholder.svg" alt="Item preview">
+            </div>
+
+            <label class="field">
+              <span>Display order</span>
+              <input id="item-order" type="number" step="1" value="0">
+            </label>
+
+            <div class="checkbox-row">
+              <label class="checkbox-label">
+                <input id="item-published" type="checkbox">
+                <span>Published</span>
+              </label>
+
+              <label class="checkbox-label">
+                <input id="item-featured" type="checkbox">
+                <span>Large featured card</span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button id="save-button" class="button button-primary" type="submit">Save item</button>
+              <button id="cancel-edit" class="button button-secondary" type="button" hidden>Cancel edit</button>
+            </div>
+
+            <p id="form-message" class="form-message" role="alert"></p>
+          </form>
+        </section>
+
+        <section class="panel items-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow dark-eyebrow">Inventory</p>
+              <h2>Your items</h2>
+              <p>Drafts are visible here but not on the public website.</p>
+            </div>
+            <span id="item-count" class="count-badge">0 items</span>
+          </div>
+
+          <div id="owner-loading" class="loading-state">
+            <span class="spinner" aria-hidden="true"></span>
+            <span>Loading items…</span>
+          </div>
+
+          <div id="owner-items" class="owner-items"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./config.js"></script>
+  <script src="./owner.js"></script>
+</body>
+</html>

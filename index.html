@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A premium owner-managed item catalog.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Aurelia — Premium Collection</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Aurelia home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>Aurelia</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="#collection">Collection</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="owner-link" href="./owner.html">Owner</a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Premium collection</p>
+        <h1 id="hero-title">Designed to feel effortless.</h1>
+        <p id="hero-description" class="hero-description">
+          A clean, modern catalog managed securely through a private owner dashboard.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#collection">Explore items</a>
+          <a class="text-link" href="#experience">Learn more <span aria-hidden="true">›</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip" id="experience" aria-label="Website features">
+      <article>
+        <span class="feature-number">01</span>
+        <h2>Minimal.</h2>
+        <p>Focused typography, generous spacing, and premium visual hierarchy.</p>
+      </article>
+      <article>
+        <span class="feature-number">02</span>
+        <h2>Responsive.</h2>
+        <p>Designed to work beautifully on desktop, tablet, and mobile screens.</p>
+      </article>
+      <article>
+        <span class="feature-number">03</span>
+        <h2>Owner controlled.</h2>
+        <p>Only published items appear publicly. Drafts stay inside the owner dashboard.</p>
+      </article>
+    </section>
+
+    <section class="collection-section" id="collection">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark-eyebrow">Curated selection</p>
+          <h2>Featured items.</h2>
+        </div>
+        <p>Products, services, rooms, tours, packages, or any other items can be displayed here.</p>
+      </div>
+
+      <div id="setup-message" class="setup-message" hidden>
+        <strong>Supabase setup required.</strong>
+        <span>Open <code>config.js</code> and add your Supabase project URL and publishable key.</span>
+      </div>
+
+      <div id="loading-state" class="loading-state">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Loading collection…</span>
+      </div>
+
+      <div id="item-grid" class="item-grid" aria-live="polite"></div>
+
+      <div id="empty-state" class="empty-state" hidden>
+        <h3>No published items yet.</h3>
+        <p>The owner can publish an item from the private dashboard.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <p class="eyebrow">Built for your brand</p>
+      <h2>Make the experience yours.</h2>
+      <p>Replace the sample name, text, images, currency, and contact details with your own business information.</p>
+      <a class="button button-dark" href="mailto:hello@example.com">Contact us</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="current-year"></span> Aurelia.</span>
+    <span>Independent sample design. Not affiliated with Apple Inc.</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
